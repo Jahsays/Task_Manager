@@ -5,14 +5,11 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 
 app.use(express.json());
-
-app.get('/hello', (req,res)=>{
-    res.send('all looks good ')
-});
+// app.use(express.static(./public))
 
 app.use('/api/v1/tasks', tasks);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const start = async () => {
     try {
@@ -25,4 +22,4 @@ const start = async () => {
 }
 
 start();
-// app.listen(port, console.log(`app is where we want it to be @ port ${port}`));
+ 
